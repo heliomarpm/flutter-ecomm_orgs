@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ecomm/core/app_colors.dart';
 import 'package:ecomm/core/app_images.dart';
-import 'package:ecomm/screens/home_screen.dart';
-import 'package:ecomm/screens/singup_screen.dart';
+import 'package:nuvigator/next.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final nuvigator = Nuvigator.of(context);
+    
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -44,7 +45,7 @@ class LoginScreen extends StatelessWidget {
               child: ConstrainedBox(
                 constraints: BoxConstraints.tightFor(width: double.infinity),
                 child: ElevatedButton(
-                  onPressed: () => Navigator.pushNamed(context, 'home'),
+                  onPressed: () => nuvigator.open('home'),
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.green, // background
                     onPrimary: Colors.white, // foreground
@@ -59,13 +60,7 @@ class LoginScreen extends StatelessWidget {
                 vertical: 10,
               ),
               child: GestureDetector(
-                onTap: () {
-                  Navigator.pushNamedAndRemoveUntil(
-                    context,
-                    'signup',
-                    (route) => false,
-                  );
-                },
+                onTap: () => nuvigator.open('singup'),
                 child: Container(
                   width: double.maxFinite,
                   padding: const EdgeInsets.all(8),

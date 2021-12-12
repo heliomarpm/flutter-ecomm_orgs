@@ -1,9 +1,7 @@
-import 'package:ecomm/models/package_model.dart';
-import 'package:ecomm/models/producer_model.dart';
+import 'package:flutter/material.dart';
 import 'package:ecomm/screens/package_details_screen.dart';
 import 'package:ecomm/screens/payment_screen.dart';
 import 'package:ecomm/screens/producer_details_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:ecomm/screens/home_screen.dart';
 import 'package:ecomm/screens/login_screen.dart';
 import 'package:ecomm/screens/singup_screen.dart';
