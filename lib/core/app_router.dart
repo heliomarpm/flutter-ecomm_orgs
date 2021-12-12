@@ -1,3 +1,5 @@
+import 'package:ecomm/models/package_model.dart';
+import 'package:ecomm/models/producer_model.dart';
 import 'package:ecomm/screens/package_details_screen.dart';
 import 'package:ecomm/screens/payment_screen.dart';
 import 'package:ecomm/screens/producer_details_screen.dart';
@@ -10,8 +12,10 @@ import 'package:ecomm/screens/profile_screen.dart';
 
 class AppRouter {
   static Route builder(RouteSettings settings) {
-    final args = settings.arguments;
+    final args = settings.arguments as Map;
 
+print(settings.name);
+print(args);
     switch (settings.name) {
       case '/':
       case 'home':
@@ -26,15 +30,15 @@ class AppRouter {
         return MaterialPageRoute(builder: (_) => ProfileScreen());
       case 'payment':
         return MaterialPageRoute(builder: (_) => PaymentScreen());
-      case 'producer-datails':
+      case 'producer-details':
         return MaterialPageRoute(
-          builder: (_) => ProducerDetailsScreen(producer: args),
+          builder: (_) => ProducerDetailsScreen(producer: args['producer']),
         );
       case 'package-details':
         return MaterialPageRoute(
           builder: (_) => PackageDetailsScreen(
-            package: (args as Map)['package'],
-            producer: (args as Map)['producer'],
+            package: args['package'],
+            producer: args['producer'],
           ),
         );
       default:
