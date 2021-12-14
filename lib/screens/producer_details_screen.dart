@@ -4,11 +4,12 @@ import 'package:ecomm/core/app_colors.dart';
 import 'package:ecomm/core/app_images.dart';
 import 'package:ecomm/models/package_model.dart';
 import 'package:ecomm/models/producer_model.dart';
-import 'package:nuvigator/next.dart';
 
 class ProducerDetailsScreen extends StatelessWidget {
   final Producer producer;
-  ProducerDetailsScreen({@required this.producer});
+  final onOpenPackageDetails;
+
+  ProducerDetailsScreen({@required this.producer, this.onOpenPackageDetails});
 
   @override
   Widget build(BuildContext context) {
@@ -93,16 +94,12 @@ class ProducerDetailsScreen extends StatelessWidget {
 
   List _generatePackageList(BuildContext context, List packages) {
     List<Widget> children = [];
-    final nuvigator = Nuvigator.of(context);
 
     for (final package in packages) {
       final pack = Package.fromJson(package);
 
       children.add(InkWell(
-        onTap: () => nuvigator.open(
-          'package-details',
-          parameters: {'package': pack, 'producer': producer},
-        ),
+        onTap: () => onOpenPackageDetails({'package': pack, 'producer': producer}),
         child: OrgsPackagesCard(
           title: pack.title,
           price: pack.price,

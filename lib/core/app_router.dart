@@ -4,7 +4,7 @@ import 'package:ecomm/screens/payment_screen.dart';
 import 'package:ecomm/screens/producer_details_screen.dart';
 import 'package:ecomm/screens/home_screen.dart';
 import 'package:ecomm/screens/login_screen.dart';
-import 'package:ecomm/screens/singup_screen.dart';
+import 'package:ecomm/screens/signup_screen.dart';
 import 'package:ecomm/screens/favorites_screen.dart';
 import 'package:ecomm/screens/profile_screen.dart';
 
@@ -20,8 +20,8 @@ print(args);
         return MaterialPageRoute(builder: (_) => HomeScreen());
       case 'login':
         return MaterialPageRoute(builder: (_) => LoginScreen());
-      case 'singup':
-        return MaterialPageRoute(builder: (_) => SingupScreen());
+      case 'signup':
+        return MaterialPageRoute(builder: (_) => SignUpScreen());
       case 'favorites':
         return MaterialPageRoute(builder: (_) => FavoritesScreen());
       case 'profile':

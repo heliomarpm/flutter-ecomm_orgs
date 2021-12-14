@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:ecomm/core/app_colors.dart';
 import 'package:ecomm/core/app_images.dart';
-import 'package:nuvigator/next.dart';
 
-class SingupScreen extends StatelessWidget {
+class SignUpScreen extends StatelessWidget {
+  final onOpenLogin;
+
+  const SignUpScreen({Key key, this.onOpenLogin}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    final nuvigator = Nuvigator.of(context);
-    
+
     return Scaffold(
         body: SingleChildScrollView(
       child: Column(
@@ -74,7 +76,7 @@ class SingupScreen extends StatelessWidget {
               vertical: 10,
             ),
             child: GestureDetector(
-              onTap: () => nuvigator.open('login'),
+              onTap: () => onOpenLogin(),
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),

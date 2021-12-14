@@ -9,9 +9,12 @@ import 'package:ecomm/core/app_colors.dart';
 import 'package:ecomm/core/app_images.dart';
 import 'package:ecomm/models/producer_model.dart';
 import 'package:ecomm/repository/data.dart';
-import 'package:nuvigator/next.dart';
 
 class HomeScreen extends StatefulWidget {
+  final onOpenProducerDetails;
+
+  const HomeScreen({Key key, this.onOpenProducerDetails}) : super(key: key);
+
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -137,16 +140,11 @@ class _HomeScreenState extends State<HomeScreen> {
     final data = await Data.getJson();
     final producers = data["producers"];
 
-    final nuvigator = Nuvigator.of(context);
-
     for (final producer in producers.keys) {
       final prod = Producer.fromJson(producers[producer]);
 
       children.add(OrgsStoresCard(
-        action: () => nuvigator.open(
-          'producer-details',
-          parameters: {'producer': prod},
-        ),
+        action: () => widget.onOpenProducerDetails({'producer': prod}),
         img: prod.logo,
         distance: prod.distance,
         title: prod.name,

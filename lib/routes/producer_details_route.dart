@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+import 'package:nuvigator/next.dart';
+import 'package:ecomm/screens/producer_details_screen.dart';
+
+
+class ProducerDetailsRoute extends NuRoute {
+  @override
+  Widget build(BuildContext context, NuRouteSettings<Object> settings) {
+    return ProducerDetailsScreen(
+      producer: settings.rawParameters['producer'],
+      onOpenPackageDetails: (parameters) => nuvigator.open('package-datails', parameters: parameters),
+    );
+  }
+
+  @override
+  String get path => 'producer-details';
+
+  @override
+  ScreenType get screenType => materialScreenType;
+}
