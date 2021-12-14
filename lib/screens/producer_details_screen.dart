@@ -9,7 +9,7 @@ class ProducerDetailsScreen extends StatelessWidget {
   final Producer producer;
   final onOpenPackageDetails;
 
-  ProducerDetailsScreen({@required this.producer, this.onOpenPackageDetails});
+  const ProducerDetailsScreen({Key? key, required this.producer, this.onOpenPackageDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class ProducerDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           'Detalhe da empresa',
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
@@ -40,23 +40,23 @@ class ProducerDetailsScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
+                      borderRadius: const BorderRadius.all(Radius.circular(10)),
                       child: Image.asset(producer.logo),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Expanded(
                         child: Text(
                       producer.name,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w700,
                       ),
                     )),
                     Text(
                       '${producer.distance} km',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.w400,
                       ),
@@ -69,10 +69,10 @@ class ProducerDetailsScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
             child: Text(producer.description,
-                style: TextStyle(color: AppColors.darkGrey, fontSize: 18)),
+                style: const TextStyle(color: AppColors.darkGrey, fontSize: 18)),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: Text(
               'Cestas',
               style: TextStyle(
@@ -83,7 +83,7 @@ class ProducerDetailsScreen extends StatelessWidget {
           ),
           Expanded(
               child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 5, 20, 0),
+            padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
             child: ListView(
                 children: _generatePackageList(context, producer.packages)),
           )),
@@ -92,7 +92,7 @@ class ProducerDetailsScreen extends StatelessWidget {
     );
   }
 
-  List _generatePackageList(BuildContext context, List packages) {
+  List<Widget> _generatePackageList(BuildContext context, List<dynamic> packages) {
     List<Widget> children = [];
 
     for (final package in packages) {

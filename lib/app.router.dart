@@ -1,3 +1,5 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:nuvigator/next.dart';
 import 'package:ecomm/routes/favorites_route.dart';
 import 'package:ecomm/routes/home_route.dart';

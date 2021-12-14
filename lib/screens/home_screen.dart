@@ -13,7 +13,7 @@ import 'package:ecomm/repository/data.dart';
 class HomeScreen extends StatefulWidget {
   final onOpenProducerDetails;
 
-  const HomeScreen({Key key, this.onOpenProducerDetails}) : super(key: key);
+  const HomeScreen({Key? key, this.onOpenProducerDetails}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -22,16 +22,15 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<ScaffoldState> _scaffoldKey =
-        new GlobalKey<ScaffoldState>();
+    final _scaffoldKey = GlobalKey<ScaffoldState>();
 
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: Colors.grey[100],
-      drawer: OrgsDrawer(),
+      drawer: const OrgsDrawer(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -44,24 +43,24 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                   IconButton(
                     color: Colors.transparent,
-                    icon: Icon(Icons.menu,
+                    icon: const Icon(Icons.menu,
                         color: AppColors.green), // set your color here
-                    onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                    onPressed: () => _scaffoldKey.currentState!.openDrawer(),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
-              Text(
-                'Olá, Leonardo',
+              const Text(
+                'Olá, Heliomar',
                 style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w700,
                     color: AppColors.darkGrey),
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Encontre os melhores produtores',
                 style: TextStyle(
                   fontSize: 16,
@@ -69,44 +68,44 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 10),
-              OrgsSearchBar(),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
+              const OrgsSearchBar(),
+              const SizedBox(height: 10),
               FutureBuilder(
                 future: _generateHighlightsCards(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return snapshot.data;
+                    return snapshot.data as Widget;
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                 },
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Cestas em destaque',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w700,
                     color: AppColors.darkGrey),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               FutureBuilder(
                 future: _generateSpotlightCards(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return snapshot.data;
+                    return snapshot.data as Widget;
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                 },
               ),
-              SizedBox(height: 20),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
                 'Mais acessados',
                 style: TextStyle(
                   color: AppColors.darkGrey,
@@ -114,20 +113,20 @@ class _HomeScreenState extends State<HomeScreen> {
                   fontSize: 20,
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               FutureBuilder(
                 future: _generateProducerList(context),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return Column(children: snapshot.data);
+                    return Column(children: snapshot.data as List<Widget>);
                   } else {
-                    return Center(
+                    return const Center(
                       child: CircularProgressIndicator(),
                     );
                   }
                 },
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -150,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: prod.name,
       ));
 
-      children.add(SizedBox(height: 10));
+      children.add(const SizedBox(height: 10));
     }
 
     return children;

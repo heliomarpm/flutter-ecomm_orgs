@@ -9,17 +9,14 @@ class OrgsHighlightsCard extends StatelessWidget {
   final String description;
   final void Function() btnAction;
 
-  OrgsHighlightsCard(
-      {@required this.img,
-      @required this.title,
-      @required this.description,
-      @required this.color,
-      @required this.btnAction})
-      : assert(img != null),
-        assert(title != null),
-        assert(description != null),
-        assert(color != null),
-        assert(btnAction != null);
+  const OrgsHighlightsCard({
+    Key? key,
+    required this.img,
+    required this.title,
+    required this.description,
+    required this.color,
+    required this.btnAction,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +29,7 @@ class OrgsHighlightsCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: Row(
             children: [
               Column(
@@ -42,10 +39,10 @@ class OrgsHighlightsCard extends StatelessWidget {
                     AppImages.logoIcon,
                     width: 30,
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     title,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.w700,
                         color: AppColors.darkGrey),
@@ -53,16 +50,16 @@ class OrgsHighlightsCard extends StatelessWidget {
                   Text(
                     description,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.w400,
                       color: AppColors.darkGrey,
                     ),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   ElevatedButton(
                     onPressed: btnAction,
-                    child: Text(
+                    child: const Text(
                       'Ver agora',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),

@@ -6,7 +6,7 @@ class LoginScreen extends StatelessWidget {
   final onOpenSignUp;
   final onOpenHome;
 
-  const LoginScreen({Key key, this.onOpenSignUp, this.onOpenHome}) : super(key: key);
+  const LoginScreen({Key? key, this.onOpenSignUp, this.onOpenHome}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
@@ -21,43 +21,43 @@ class LoginScreen extends StatelessWidget {
               width: double.maxFinite,
               // height: 180,
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.symmetric(horizontal: 20),
               child: Text(
                 'Login',
                 style: TextStyle(fontWeight: FontWeight.w700, fontSize: 26),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+            const Padding(
+              padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
               child: TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), hintText: 'Email'),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: TextField(
                 decoration: InputDecoration(
                     border: OutlineInputBorder(), hintText: 'Senha'),
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: ConstrainedBox(
-                constraints: BoxConstraints.tightFor(width: double.infinity),
+                constraints: const BoxConstraints.tightFor(width: double.infinity),
                 child: ElevatedButton(
                   onPressed: () => onOpenHome,
                   style: ElevatedButton.styleFrom(
                     primary: AppColors.green, // background
                     onPrimary: Colors.white, // foreground
                   ),
-                  child: Text('Entrar'),
+                  child: const Text('Entrar'),
                 ),
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 10,
               ),
@@ -66,7 +66,7 @@ class LoginScreen extends StatelessWidget {
                 child: Container(
                   width: double.maxFinite,
                   padding: const EdgeInsets.all(8),
-                  child: Center(
+                  child: const Center(
                       child: Text(
                     'Não tem uma conta?',
                     style: TextStyle(
@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(
+              padding: const EdgeInsets.symmetric(
                 horizontal: 20,
                 vertical: 5,
               ),
@@ -87,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                 child: Container(
                   width: double.maxFinite,
                   padding: const EdgeInsets.all(8),
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Esqueci minha senha',
                       style: TextStyle(

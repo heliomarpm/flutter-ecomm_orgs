@@ -6,12 +6,12 @@ class OrgsMenuCard extends StatelessWidget {
   final String text;
   final void Function() action;
 
-  OrgsMenuCard({
-    @required this.icon,
-    @required this.text,
-    @required this.action,
-  })  : assert(icon != null),
-        assert(text != null);
+  const OrgsMenuCard({
+    Key? key,
+    required this.icon,
+    required this.text,
+    required this.action,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +34,10 @@ class OrgsMenuCard extends StatelessWidget {
                 size: 20,
               ),
             ),
-            SizedBox(width: 20),
+            const SizedBox(width: 20),
             Text(
               text,
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w400),
             )
           ],
         ),

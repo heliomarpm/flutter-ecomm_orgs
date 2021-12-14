@@ -5,21 +5,23 @@ import 'package:ecomm/core/app_colors.dart';
 import 'package:ecomm/core/app_images.dart';
 
 class ProfileScreen extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+  ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: OrgsDrawer(),
+      drawer: const OrgsDrawer(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-                Text(
+                const Text(
                   'Perfil',
                   style: TextStyle(
                       fontSize: 26,
@@ -28,18 +30,18 @@ class ProfileScreen extends StatelessWidget {
                 ),
                 IconButton(
                     color: Colors.transparent,
-                    icon: Icon(Icons.menu,
+                    icon: const Icon(Icons.menu,
                         color: AppColors.green), // set your color here
                     onPressed: () {
-                      _scaffoldKey.currentState.openDrawer();
+                      _scaffoldKey.currentState!.openDrawer();
                     }),
               ]),
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Row(children: [
-                    Container(
+                    SizedBox(
                       width: 100,
                       height: 100,
                       child: Stack(
@@ -59,7 +61,7 @@ class ProfileScreen extends StatelessWidget {
                                 color: AppColors.green,
                                 borderRadius: BorderRadius.circular(20),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.enhance_photo_translate,
                                 color: Colors.white,
                                 size: 20,
@@ -71,50 +73,50 @@ class ProfileScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(width: 15),
-                    Text(
-                      'Leonardo Alurano',
+                    const SizedBox(width: 15),
+                    const Text(
+                      'Heliomar Marques',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
                       ),
                     ),
                   ]),
-                  SizedBox(height: 30),
-                  Text(
+                  const SizedBox(height: 30),
+                  const Text(
                     'Informações do perfil',
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 18,
                     ),
                   ),
-                  SizedBox(height: 20),
-                  OrgsProfileCard(
+                  const SizedBox(height: 20),
+                  const OrgsProfileCard(
                     textArea: 'Nome completo',
-                    data: 'Leonardo Alurano',
+                    data: 'Heliomar Marques',
                     icon: Icons.person,
                   ),
-                  Divider(),
-                  OrgsProfileCard(
+                  const Divider(),
+                  const OrgsProfileCard(
                     textArea: 'Endereço',
                     data: 'Rua dos devs, 20',
                     icon: Icons.home,
                   ),
-                  Divider(),
-                  OrgsProfileCard(
+                  const Divider(),
+                  const OrgsProfileCard(
                     textArea: 'Pagamento',
                     data: 'DevCard',
                     icon: Icons.credit_card,
                   ),
-                  Divider(),
-                  OrgsProfileCard(
+                  const Divider(),
+                  const OrgsProfileCard(
                     textArea: 'Contato',
                     data: '(22) 9.8877-6655',
                     icon: Icons.phone,
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
             ],

@@ -8,17 +8,14 @@ class OrgsSpotlightCard extends StatelessWidget {
   final String store;
   final Color color;
 
-  OrgsSpotlightCard(
-      {@required this.img,
-      @required this.price,
-      @required this.description,
-      @required this.color,
-      @required this.store})
-      : assert(img != null),
-        assert(price != null),
-        assert(description != null),
-        assert(color != null),
-        assert(store != null);
+  const OrgsSpotlightCard({
+    Key? key,
+    required this.img,
+    required this.price,
+    required this.description,
+    required this.color,
+    required this.store,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +28,7 @@ class OrgsSpotlightCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
         ),
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
           child: Row(
             children: [
               Column(
@@ -39,12 +36,12 @@ class OrgsSpotlightCard extends StatelessWidget {
                 children: [
                   Text(
                     description,
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+                    style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                   ),
-                  SizedBox(height: 5),
+                  const SizedBox(height: 5),
                   Text(
                     'R\$ $price',
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 25,
                         fontWeight: FontWeight.w700,
                         color: AppColors.darkGrey),
@@ -57,7 +54,7 @@ class OrgsSpotlightCard extends StatelessWidget {
                         padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                         child: Text(
                           store,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 14,
                               fontWeight: FontWeight.w400,
                               color: AppColors.darkGrey),
@@ -68,7 +65,7 @@ class OrgsSpotlightCard extends StatelessWidget {
                 ],
               ),
               ClipRRect(
-                borderRadius: BorderRadius.all(Radius.circular(20)),
+                borderRadius: const BorderRadius.all(Radius.circular(20)),
                 child: Container(
                   color: AppColors.white,
                   child: Image.asset(img),

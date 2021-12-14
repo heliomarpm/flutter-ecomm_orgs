@@ -1,3 +1,5 @@
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
 import 'package:ecomm/core/app_colors.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -5,17 +7,16 @@ import 'package:smooth_star_rating/smooth_star_rating.dart';
 class OrgsStoresCard extends StatelessWidget {
   final String img;
   final String title;
-  final String distance;
+  final String? distance;
   final void Function() action;
 
-  OrgsStoresCard(
-      {@required this.img,
-      @required this.title,
-      this.distance,
-      @required this.action})
-      : assert(img != null),
-        assert(title != null),
-        assert(action != null);
+  const OrgsStoresCard({
+    Key? key,
+    required this.img,
+    required this.title,
+    required this.action,
+    this.distance,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class OrgsStoresCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Colors.white,
-            boxShadow: [
+            boxShadow: const [
               BoxShadow(
                 color: Colors.grey,
                 blurRadius: 1.0,
@@ -41,12 +42,12 @@ class OrgsStoresCard extends StatelessWidget {
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                   child: Image.asset(
                     img,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Column(
@@ -55,9 +56,9 @@ class OrgsStoresCard extends StatelessWidget {
                     Text(
                       title,
                       style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                          const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 5,
                     ),
                     SmoothStarRating(
@@ -79,22 +80,23 @@ class OrgsStoresCard extends StatelessWidget {
   }
 
   _favoriteOrDistance(distance) {
-    if (distance != null)
+    if (distance != null) {
       return Expanded(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Text('Distância', style: TextStyle(color: AppColors.darkGrey)),
+            const Text('Distância', style: TextStyle(color: AppColors.darkGrey)),
             Text('$distance km')
           ],
         ),
       );
+    }
 
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [
+        children: const [
           Icon(
             Icons.favorite,
             color: AppColors.green,

@@ -6,11 +6,11 @@ class Producer {
   List packages;
 
   Producer({
-    this.name,
-    this.description,
-    this.logo,
-    this.distance,
-    this.packages
+    required this.name,
+    required this.description,
+    required this.logo,
+    required this.distance,
+    required this.packages
   });
 
   factory Producer.fromJson(Map<String, dynamic> parsedJson){

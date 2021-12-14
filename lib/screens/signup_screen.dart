@@ -5,7 +5,7 @@ import 'package:ecomm/core/app_images.dart';
 class SignUpScreen extends StatelessWidget {
   final onOpenLogin;
 
-  const SignUpScreen({Key key, this.onOpenLogin}) : super(key: key);
+  const SignUpScreen({Key? key, this.onOpenLogin}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,57 +21,57 @@ class SignUpScreen extends StatelessWidget {
             width: double.maxFinite,
             // height: 180,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
               'Criar uma conta',
               style: TextStyle(fontWeight: FontWeight.w700, fontSize: 26),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
             child: TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Email'),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 10),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 10),
             child: TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Nome completo'),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Senha'),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          const Padding(
+            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: TextField(
               decoration: InputDecoration(
                   border: OutlineInputBorder(), hintText: 'Confirmar senha'),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: double.infinity),
+              constraints: const BoxConstraints.tightFor(width: double.infinity),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.green, // background
                   onPrimary: Colors.white, // foreground
                 ),
-                child: Text('Cadastrar-me'),
+                child: const Text('Cadastrar-me'),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: 20,
               vertical: 10,
             ),
@@ -80,7 +80,7 @@ class SignUpScreen extends StatelessWidget {
               child: Container(
                 width: double.maxFinite,
                 padding: const EdgeInsets.all(8),
-                child: Center(
+                child: const Center(
                     child: Text(
                   'Já tenho uma conta',
                   style: TextStyle(

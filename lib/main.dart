@@ -1,12 +1,19 @@
+// For ignore null-safety error in deendencies
+// @dart=2.9 
+
+// ignore_for_file: import_of_legacy_library_into_null_safe
+
 import 'package:flutter/material.dart';
 import 'package:nuvigator/next.dart';
 import 'package:ecomm/app.router.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({Key key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

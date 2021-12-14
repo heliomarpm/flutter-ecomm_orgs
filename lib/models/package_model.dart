@@ -5,10 +5,10 @@ class Package {
   String price;
 
   Package({
-    this.title,
-    this.description,
-    this.items,
-    this.price
+    required this.title,
+    required this.description,
+    required this.items,
+    required this.price
   });
 
   factory Package.fromJson(Map<String, dynamic> parsedJson){

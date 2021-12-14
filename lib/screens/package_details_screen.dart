@@ -9,10 +9,10 @@ class PackageDetailsScreen extends StatelessWidget {
   final Package package;
   final Producer producer;
 
-  PackageDetailsScreen({
-    @required this.package,
-    @required this.producer,
-  });
+  const PackageDetailsScreen({Key? key, 
+    required this.package,
+    required this.producer,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class PackageDetailsScreen extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
-        title: Text(
+        title: const Text(
           'Detalhe da cesta',
           style: TextStyle(fontWeight: FontWeight.w700),
         ),
@@ -43,14 +43,14 @@ class PackageDetailsScreen extends StatelessWidget {
                 Expanded(
                     child: Text(
                   package.title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 25,
                     fontWeight: FontWeight.w700,
                   ),
                 )),
                 Text(
                   '${producer.distance} km',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
@@ -63,18 +63,18 @@ class PackageDetailsScreen extends StatelessWidget {
             child: Row(
               children: [
                 ClipRRect(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
                   child: Image.asset(
                     producer.logo,
                     width: 50,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Text(
                   producer.name,
-                  style: TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
+                  style: const TextStyle(fontWeight: FontWeight.w400, fontSize: 18),
                 ),
               ],
             ),
@@ -83,14 +83,14 @@ class PackageDetailsScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
             child: Text(
               producer.description,
-              style: TextStyle(),
+              style: const TextStyle(),
             ),
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(20, 15, 20, 0),
             child: Text(
               'R\$ ${package.price}',
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.w700,
                 color: AppColors.green,
@@ -98,21 +98,21 @@ class PackageDetailsScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 20),
             child: ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: double.infinity),
+              constraints: const BoxConstraints.tightFor(width: double.infinity),
               child: ElevatedButton(
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
                   primary: AppColors.green, // background
                   onPrimary: Colors.white, // foreground
                 ),
-                child: Text('Comprar'),
+                child: const Text('Comprar'),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: Text(
               'Itens da cesta',
               style: TextStyle(
@@ -123,7 +123,7 @@ class PackageDetailsScreen extends StatelessWidget {
           ),
           Expanded(
               child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 5, 20, 0),
+            padding: const EdgeInsets.fromLTRB(20, 5, 20, 0),
             child: ListView(children: _generatePackageItems(package)),
           )),
         ],
@@ -135,7 +135,7 @@ class PackageDetailsScreen extends StatelessWidget {
     List<Widget> children = [];
 
     for (final item in package.items) {
-      children.add(OrgsPackagesCard(description: "", title: item, price: null));
+      children.add(OrgsPackagesCard(description: "", title: item));
     }
 
     return children;

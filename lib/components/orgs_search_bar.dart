@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OrgsSearchBar extends StatelessWidget {
+  const OrgsSearchBar({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -9,9 +11,9 @@ class OrgsSearchBar extends StatelessWidget {
         borderRadius: BorderRadius.circular(30.0),
       ),
       height: 50,
-      margin: EdgeInsets.all(12),
+      margin: const EdgeInsets.all(12),
       child: Row(
-        children: <Widget>[
+        children: const [
           Padding(
             padding: EdgeInsets.only(left: 8),
             child: Icon(
@@ -20,7 +22,7 @@ class OrgsSearchBar extends StatelessWidget {
               size: 20,
             ),
           ),
-          new Expanded(
+          Expanded(
             child: TextField(
               keyboardType: TextInputType.text,
               decoration: InputDecoration(

@@ -12,22 +12,22 @@ class AppRouter {
   static Route builder(RouteSettings settings) {
     final args = settings.arguments as Map;
 
-print(settings.name);
-print(args);
+    // print(settings.name);
+    // print(args);
     switch (settings.name) {
       case '/':
       case 'home':
-        return MaterialPageRoute(builder: (_) => HomeScreen());
+        return MaterialPageRoute(builder: (_) => const HomeScreen());
       case 'login':
-        return MaterialPageRoute(builder: (_) => LoginScreen());
+        return MaterialPageRoute(builder: (_) => const LoginScreen());
       case 'signup':
-        return MaterialPageRoute(builder: (_) => SignUpScreen());
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
       case 'favorites':
         return MaterialPageRoute(builder: (_) => FavoritesScreen());
       case 'profile':
         return MaterialPageRoute(builder: (_) => ProfileScreen());
       case 'payment':
-        return MaterialPageRoute(builder: (_) => PaymentScreen());
+        return MaterialPageRoute(builder: (_) => const PaymentScreen());
       case 'producer-details':
         return MaterialPageRoute(
           builder: (_) => ProducerDetailsScreen(producer: args['producer']),
@@ -47,12 +47,11 @@ print(args);
   static screenError() {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Error'),
+        title: const Text('Error'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('No route defined for this route'),
       ),
     );
   }
-
 }

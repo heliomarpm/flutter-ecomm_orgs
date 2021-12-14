@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ecomm/core/app_colors.dart';
 
 class OrgsRateApp extends StatelessWidget {
+  const OrgsRateApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,7 +18,7 @@ class OrgsRateApp extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
+              children: const [
                 Text('Avalie o app',
                     style: TextStyle(
                         fontSize: 22,

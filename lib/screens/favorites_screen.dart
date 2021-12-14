@@ -6,27 +6,27 @@ import 'package:ecomm/models/producer_model.dart';
 import 'package:ecomm/repository/data.dart';
 
 class FavoritesScreen extends StatelessWidget {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
   final onOpenProducerDetails;
 
-  FavoritesScreen({this.onOpenProducerDetails});
+  FavoritesScreen({Key? key, this.onOpenProducerDetails}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: OrgsDrawer(),
+      drawer: const OrgsDrawer(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.fromLTRB(20, 50, 20, 0),
+          padding: const EdgeInsets.fromLTRB(20, 50, 20, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
+                  const Text(
                     'Produtores favoritos',
                     style: TextStyle(
                         fontSize: 26,
@@ -35,13 +35,15 @@ class FavoritesScreen extends StatelessWidget {
                   ),
                   IconButton(
                     color: Colors.transparent,
-                    icon: Icon(Icons.menu, color: AppColors.green),
-                    onPressed: () => _scaffoldKey.currentState.openDrawer(),
+                    icon: const Icon(Icons.menu, color: AppColors.green),
+                    onPressed: () {
+                      _scaffoldKey.currentState!.openDrawer();
+                    },
                   ),
                 ],
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 'Produtores que você favoritou',
                 style: TextStyle(
                   fontSize: 16,
@@ -49,8 +51,8 @@ class FavoritesScreen extends StatelessWidget {
                   color: Colors.grey,
                 ),
               ),
-              SizedBox(height: 30),
-              Container(
+              const SizedBox(height: 30),
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: FutureBuilder(
@@ -58,10 +60,10 @@ class FavoritesScreen extends StatelessWidget {
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
                       return Column(
-                        children: snapshot.data,
+                        children: snapshot.data as List<Widget>,
                       );
                     } else {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
@@ -90,7 +92,7 @@ class FavoritesScreen extends StatelessWidget {
         title: prod.name,
       ));
 
-      children.add(SizedBox(height: 10));
+      children.add(const SizedBox(height: 10));
     }
 
     return children;
