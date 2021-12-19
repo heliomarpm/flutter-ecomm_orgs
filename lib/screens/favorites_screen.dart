@@ -83,7 +83,7 @@ class FavoritesScreen extends StatelessWidget {
     final producers = data["producers"];
 
     for (final producer in producers.keys) {
-      final prod = Producer.fromJson(producers[producer]);
+      final prod = Producer.fromMap(producers[producer]);
 
       children.add(OrgsStoresCard(
         action: () => onOpenProducerDetails({'producer': prod}),

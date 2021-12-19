@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 20,
               ),
               const Text(
-                'Olá, Heliomar',
+                'Olá, Leonardo!',
                 style: TextStyle(
                     fontSize: 26,
                     fontWeight: FontWeight.w700,
@@ -75,7 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 future: _generateHighlightsCards(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return snapshot.data as Widget;
+                    return snapshot.data as OrgsCardsList;
                   } else {
                     return const Center(
                       child: CircularProgressIndicator(),
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 future: _generateSpotlightCards(),
                 builder: (context, snapshot) {
                   if (snapshot.hasData) {
-                    return snapshot.data as Widget;
+                    return snapshot.data as OrgsCardsList;
                   } else {
                     return const Center(
                       child: CircularProgressIndicator(),
@@ -134,13 +134,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Future _generateProducerList(BuildContext context) async {
+  Future<List<Widget>> _generateProducerList(BuildContext context) async {
     List<Widget> children = [];
     final data = await Data.getJson();
     final producers = data["producers"];
 
     for (final producer in producers.keys) {
-      final prod = Producer.fromJson(producers[producer]);
+      final prod = Producer.fromMap(producers[producer]);
 
       children.add(OrgsStoresCard(
         action: () => widget.onOpenProducerDetails({'producer': prod}),

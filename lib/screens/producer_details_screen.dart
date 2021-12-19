@@ -96,7 +96,7 @@ class ProducerDetailsScreen extends StatelessWidget {
     List<Widget> children = [];
 
     for (final package in packages) {
-      final pack = Package.fromJson(package);
+      final pack = Package.fromMap(package);
 
       children.add(InkWell(
         onTap: () => onOpenPackageDetails({'package': pack, 'producer': producer}),

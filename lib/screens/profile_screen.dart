@@ -75,7 +75,7 @@ class ProfileScreen extends StatelessWidget {
                     ),
                     const SizedBox(width: 15),
                     const Text(
-                      'Heliomar Marques',
+                      'Leonardo Alurano',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.w700,
@@ -93,7 +93,7 @@ class ProfileScreen extends StatelessWidget {
                   const SizedBox(height: 20),
                   const OrgsProfileCard(
                     textArea: 'Nome completo',
-                    data: 'Heliomar Marques',
+                    data: 'Leonardo Alurano',
                     icon: Icons.person,
                   ),
                   const Divider(),

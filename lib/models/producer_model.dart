@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Producer {
   String name;
   String logo;
@@ -13,7 +15,7 @@ class Producer {
     required this.packages
   });
 
-  factory Producer.fromJson(Map<String, dynamic> parsedJson){
+  factory Producer.fromJson2(Map<String, dynamic> parsedJson){
 
     return Producer(
       name: parsedJson['name'],
@@ -23,4 +25,28 @@ class Producer {
       packages : parsedJson['packages'],
     );
   }
+
+  Map<String, dynamic> toMap() {
+    return {
+      'name': name,
+      'logo': logo,
+      'description': description,
+      'distance': distance,
+      'packages': packages,
+    };
+  }
+
+  factory Producer.fromMap(Map<String, dynamic> map) {
+    return Producer(
+      name: map['name'] ?? '',
+      logo: map['logo'] ?? '',
+      description: map['description'] ?? '',
+      distance: map['distance'] ?? '',
+      packages: List.from(map['packages']),
+    );
+  }
+
+  String toJson() => json.encode(toMap());
+
+  factory Producer.fromJson(String source) => Producer.fromMap(json.decode(source));
 }
