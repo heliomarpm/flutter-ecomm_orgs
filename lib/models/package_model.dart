@@ -13,15 +13,15 @@ class Package {
     required this.price
   });
 
-  // factory Package.fromJson(Map<String, dynamic> parsedJson){
+  factory Package.fromMapOld(Map<String, dynamic> parsedJson){
 
-  //   return Package(
-  //     title: parsedJson['title'],
-  //     price: parsedJson['price'],
-  //     items: parsedJson['items'],
-  //     description : parsedJson['description'],
-  //   );
-  // }
+    return Package(
+      title: parsedJson['title'],
+      price: parsedJson['price'],
+      items: parsedJson['items'],
+      description : parsedJson['description'],
+    );
+  }
 
 
   Map<String, dynamic> toMap() {

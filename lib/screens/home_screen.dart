@@ -143,7 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
       final prod = Producer.fromMap(producers[producer]);
 
       children.add(OrgsStoresCard(
-        action: () => widget.onOpenProducerDetails({'producer': prod}),
+        action: () => widget.onOpenProducerDetails({"producer": prod}),
         img: prod.logo,
         distance: prod.distance,
         title: prod.name,

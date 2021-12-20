@@ -7,10 +7,10 @@ import 'package:ecomm/screens/producer_details_screen.dart';
 
 class ProducerDetailsRoute extends NuRoute {
   @override
-  Widget build(BuildContext context, NuRouteSettings<Object> settings) {
+  Widget build(BuildContext context, NuRouteSettings settings) {
     return ProducerDetailsScreen(
       producer: settings.rawParameters['producer'],
-      onOpenPackageDetails: (parameters) => nuvigator.open('package-datails', parameters: parameters),
+      onOpenPackageDetails: (parameters) => nuvigator.open('package-details', parameters: parameters),
     );
   }
 

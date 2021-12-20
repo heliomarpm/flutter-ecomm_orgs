@@ -59,7 +59,7 @@ class OrgsPackagesCard extends StatelessWidget {
             const SizedBox(height: 15),
             const Divider(),
           ],
-        )),
+        ),),
       ],
     );
   }

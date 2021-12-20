@@ -15,16 +15,15 @@ class Producer {
     required this.packages
   });
 
-  factory Producer.fromJson2(Map<String, dynamic> parsedJson){
-
-    return Producer(
-      name: parsedJson['name'],
-      logo : parsedJson['logo'],
-      description : parsedJson['description'],
-      distance : parsedJson['distance'],
-      packages : parsedJson['packages'],
-    );
-  }
+  // factory Producer.fromJson(Map<String, dynamic> parsedJson){
+  //   return Producer(
+  //     name: parsedJson['name'],
+  //     logo : parsedJson['logo'],
+  //     description : parsedJson['description'],
+  //     distance : parsedJson['distance'],
+  //     packages : parsedJson['packages'],
+  //   );
+  // }
 
   Map<String, dynamic> toMap() {
     return {

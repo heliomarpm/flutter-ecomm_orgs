@@ -55,8 +55,10 @@ class OrgsStoresCard extends StatelessWidget {
                   children: [
                     Text(
                       title,
-                      style:
-                          const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                      style: const TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w700,
+                      ),
                     ),
                     const SizedBox(
                       height: 5,
@@ -85,7 +87,8 @@ class OrgsStoresCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            const Text('Distância', style: TextStyle(color: AppColors.darkGrey)),
+            const Text('Distância',
+                style: TextStyle(color: AppColors.darkGrey)),
             Text('$distance km')
           ],
         ),

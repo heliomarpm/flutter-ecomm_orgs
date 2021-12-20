@@ -27,8 +27,8 @@ class PackageDetailArgs {
 
   factory PackageDetailArgs.fromMap(Map<String, dynamic> map) {
     return PackageDetailArgs(
-      producer: Producer.fromMap(map['producer']),
-      package: Package.fromMap(map['package']),
+      producer: map['producer'],
+      package: map['package'],
     );
   }
 
@@ -41,8 +41,8 @@ class PackageDetailsRoute extends NuRoute<NuRouter, PackageDetailArgs, String> {
   @override
   Widget build(BuildContext context, NuRouteSettings<PackageDetailArgs> settings) {
     return PackageDetailsScreen(
-      producer: settings.args.producer,
       package: settings.args.package,
+      producer: settings.args.producer,
     );
   }
 
